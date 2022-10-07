@@ -18,7 +18,7 @@ end
 minetest.register_privilege("msg_color", {
 	description = "Can use colored chat messages",
 	give_to_singleplayer = false,
-	give_to_admin = true
+	give_to_admin = false
 })
 
 
@@ -59,8 +59,17 @@ minetest.register_on_chat_message(
 		else
 			local color = get_color(name)
 			minetest.chat_send_all(minetest.colorize(color, '<' .. name .. '> ' .. msg))
+
+			if yl_matterbridge then
+		                yl_matterbridge.send_to_bridge(name, msg)
+			end
 			return true -- we return true to mark this chat message as handled
 		end
+
+
+
+
+
 
 	end
 )

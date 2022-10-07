@@ -1,6 +1,6 @@
 # msg_color
 
-A minetest mod to add colored chat messages to your server. 
+Add colored chat messages to your server. 
 
 ## privs
 
